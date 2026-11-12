@@ -1,13 +1,13 @@
 # Arlo — website first
 
-The game is now branded **Arlo**. Android app work is on hold at the owner's request while the public website is prepared.
+The game is now branded **Arlo**. Android app work is on hold at the owner's request while the public website is tested.
 
 - Web: all 60 campaign puzzles, daily flow, saved browser progress, free unlimited hints and one free revive per round. No account, purchases or ads.
 - Run `npm run build:web` to generate the static `dist/` website. `vercel.json` supports source-based builds; the tested compiled files can also be deployed directly as static assets.
 - `src/app/+html.tsx` includes the Expo SDK 58 server document nodes required to load fonts and JavaScript.
 - The game mounts after hydration to keep browser-size-dependent markup consistent with the static document.
 - The existing progress key and internal Android package remain unchanged so the display-name change does not discard local saves.
-- Hosting access is pending; no public deployment URL has been verified yet.
+- Public hosting uses Cloudflare Pages; see the website deployment section below.
 
 The earlier prototype notes below describe the Android test-ad path, which is retained for later and disabled on the website.
 
@@ -68,3 +68,16 @@ Progress is local. Uninstalling/clearing data removes it. Corrupt/unsupported sa
 ## Revenue status
 
 The monetisation mechanics are implemented with Google demonstration IDs. They currently generate no revenue. Before live ads, the owner must configure their AdMob app/unit IDs, consent and privacy handling, complete store/ad-network requirements and perform device QA. The production build profile deliberately blocks this test-only configuration. See MONETIZATION.md.
+
+## Website deployment
+
+Public website: https://hiakku-arlo.pages.dev/
+
+Build with Node 22.13+ and deploy the compiled website to Cloudflare Pages:
+
+```sh
+npm run build:web
+npx wrangler@4.160.1 pages deploy dist --project-name hiakku-arlo --branch main
+```
+
+The post-export script moves Expo dependency assets out of `assets/node_modules/` because Cloudflare excludes directories with that name. Only compiled website assets are uploaded. This is a direct upload deployment; GitHub pushes do not automatically redeploy it.
