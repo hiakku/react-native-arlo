@@ -86,3 +86,7 @@ The post-export script moves Expo dependency assets out of `assets/node_modules/
 Build: https://expo.dev/accounts/chit20/projects/arrow-room/builds/f2811b36-7e72-4582-a32b-f460663f61ab
 
 Version `0.1.0` (Android version code `1`), package `com.chit20.arrowroom`. This preview includes Google demonstration ads, which generate no revenue. Android signing credentials are managed by Expo and are not committed to GitHub.
+
+Download the signed Android APK: https://expo.dev/artifacts/eas/NCpY26qCUWH40V4xYf2Eq1tXs3H2KQGsfcZsKwzPnnQ.apk
+
+Build status: finished. APK archive integrity, package identity and signing-block presence were verified. Installation and gameplay on a physical Android device still need testing.
