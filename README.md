@@ -1,6 +1,6 @@
-# Arlo — website first
+# Arlo
 
-The game is now branded **Arlo**. Android app work is on hold at the owner's request while the public website is tested.
+The game is branded **Arlo**, with a public browser version and an Android preview build.
 
 - Web: all 60 campaign puzzles, daily flow, saved browser progress, free unlimited hints and one free revive per round. No account, purchases or ads.
 - Run `npm run build:web` to generate the static `dist/` website. `vercel.json` supports source-based builds; the tested compiled files can also be deployed directly as static assets.
@@ -42,11 +42,10 @@ Expo SDK 58. Dependencies come from SDK-compatible Expo installs. The current ex
 
 ## Android
 
-`eas.json` contains a preview APK profile. This independent app has not yet been linked to an Expo cloud project, built as an APK, tested on a phone, or submitted to a store.
+`eas.json` contains a preview APK profile. The project is linked to `@chit20/arrow-room` (Expo project `5b2add17-0bc1-4cf3-8fc8-7f3d8b7dd4a9`). Preview builds produce a signed APK for direct Android installation. Phone testing and store submission remain separate steps.
 
 ```sh
 npx eas-cli@latest login
-npx eas-cli@latest init
 npm run build:preview
 ```
 
@@ -81,3 +80,9 @@ npx wrangler@4.160.1 pages deploy dist --project-name hiakku-arlo --branch main
 ```
 
 The post-export script moves Expo dependency assets out of `assets/node_modules/` because Cloudflare excludes directories with that name. Only compiled website assets are uploaded. This is a direct upload deployment; GitHub pushes do not automatically redeploy it.
+
+### Current Android preview
+
+Build: https://expo.dev/accounts/chit20/projects/arrow-room/builds/f2811b36-7e72-4582-a32b-f460663f61ab
+
+Version `0.1.0` (Android version code `1`), package `com.chit20.arrowroom`. This preview includes Google demonstration ads, which generate no revenue. Android signing credentials are managed by Expo and are not committed to GitHub.

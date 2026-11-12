@@ -5,3 +5,6 @@ dist/
 tests/
 scripts/
 *.zip
+
+# Android export verification output
+dist-android/

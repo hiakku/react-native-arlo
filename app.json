@@ -44,6 +44,17 @@
       ]
     ],
     "scheme": "arrow-room",
-    "description": "A little less tangled. Play 60 arrow escape puzzles and a fresh daily challenge."
+    "description": "A little less tangled. Play 60 arrow escape puzzles and a fresh daily challenge.",
+    "extra": {
+      "router": {
+        "asyncRoutes": {
+          "web": true
+        }
+      },
+      "eas": {
+        "projectId": "5b2add17-0bc1-4cf3-8fc8-7f3d8b7dd4a9"
+      }
+    },
+    "owner": "chit20"
   }
 }

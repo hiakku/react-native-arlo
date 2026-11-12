@@ -60,3 +60,6 @@ node_modules/
 credentials.json
 *service-account*.json
 .DS_Store
+
+# Android export verification output
+dist-android/
